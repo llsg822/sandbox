@@ -1,0 +1,17 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: mart
+  jpa:
+    show-sql: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:postgresql://localhost:56391/sandbox
+    username: sandbox
+    password: sandbox
+    driver-class-name: org.postgresql.Driver
+springdoc:
+  default-produces-media-type: application/json
