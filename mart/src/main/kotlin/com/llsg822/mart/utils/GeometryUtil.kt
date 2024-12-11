@@ -5,8 +5,10 @@ import org.locationtech.jts.geom.GeometryFactory
 import org.locationtech.jts.geom.Point
 import org.locationtech.jts.geom.PrecisionModel
 
-val geometryFactory = GeometryFactory(PrecisionModel(PrecisionModel.FLOATING), 4326)
+val geometryFactory = GeometryFactory(PrecisionModel(PrecisionModel.FLOATING))
 
-fun createPoint(latitude: Double, longitude: Double): Point {
-    return geometryFactory.createPoint(Coordinate(longitude, latitude))
+fun createPoint(x: Double, y: Double, srid: Int): Point {
+    return geometryFactory.createPoint(Coordinate(x, y)).also {
+        it.srid = srid
+    }
 }
