@@ -5,10 +5,8 @@ import com.llsg822.mart.entity.MartEntity
 import com.llsg822.mart.entity.MartId
 import com.llsg822.mart.event.UpdateMartEvent
 import com.llsg822.mart.repository.MartRepository
-import com.llsg822.mart.service.request.CreateMartRequest
 import com.llsg822.mart.service.request.UpdateMartRequest
 import com.llsg822.mart.service.response.GetMartResponse
-import jakarta.persistence.EntityManager
 import org.springframework.context.ApplicationEventPublisher
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
@@ -43,7 +41,7 @@ fun MartEntity.toResponse(): GetMartResponse {
     return GetMartResponse(
         id = this.id,
         name = this.name,
-        latitude = this.coordinate.y,
-        longitude = this.coordinate.x,
+        latitude = this.coordinate4326.y,
+        longitude = this.coordinate4326.x,
     )
 }
